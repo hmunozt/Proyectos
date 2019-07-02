@@ -1008,3 +1008,68 @@ hr.midhr {
     background-color: #430088;
     border-radius: 0 1em 1em 0;
 }
+/***** 2 Dispositivos **********/
+.dispositivo-2 {
+    height: 50%;
+    width: 100%;
+}
+.equipo-1{
+    border-bottom: 1em solid #430088;   
+}
+#two_models_view .device-name-brand {
+    font-size: 1em;
+    color: #391685;    
+}
+
+#two_models_view .device-name-model {
+    font-size: 1em;
+    color: #391685;    
+}
+#two_models_view .device-name-brand {
+    font-size: 2em;
+    color: #391685;    
+}
+
+#two_models_view .device-name-model {
+    font-size: 1.8em;
+    color: #391685;    
+}
+#two_models_view .portate {
+    font-size: 1.0em;
+    color: #391685;
+}
+#two_models_view .oferta .initial-price {
+    font-size: 1.5em;
+}
+#two_models_view .texto-precio-oferta {
+    font-size: 1em;
+    color: white;
+}
+#two_models_view .precio-oferta {
+    font-size: 1.5em;
+    color: white;
+}
+#two_models_view .texto-cuota-1 {
+    font-size: 0.8em;
+    color: white;
+}
+#two_models_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+#two_models_view .precio-oferta-2 {
+    font-size: 1.2em;
+    color: white;
+}
+#two_models_view .icospec {
+    width: 2.4em;
+    padding: 0.4em;
+}
+#two_models_view p{
+    font-size: 0.5em;
+    color: white;
+}
+#two_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}

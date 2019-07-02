@@ -526,10 +526,6 @@ hr.midhr {
         line-height: 0.4;
     }
 
-.purple-stripe {
-    width: 7vw !important;
-}
-
 .specs-column {
     height: 77vh;
     margin: 5vh 0 0 0;
@@ -560,9 +556,10 @@ hr.midhr {
     width: 0;
     height: 0;
     position: relative;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-right: 40px solid #430088;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid #430088;
+
 }
 /**************** 4 models **************************/
 #four_models_table {
@@ -1189,3 +1186,16 @@ hr.midhr {
     background-color: #430088;
     border-radius: 0 1em 1em 0;
 }
+#four_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}
+    #four_models_view .especificaciones::after {
+        content: '';
+        position: absolute;
+        border-top: 0.5em solid transparent;
+        border-bottom: 0.5em solid transparent;
+        border-right: 0.5em solid #430088;
+        top: 1em;
+        left: -0.5em;
+    }

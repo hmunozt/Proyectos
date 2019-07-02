@@ -1117,6 +1117,12 @@ hr.midhr {
     border-radius: 0 1em 1em 0;
 }
 /************4 Dispositivos***********************/
+.borde-wom-4 {
+    padding: 0;
+    border: 0.5em solid #430088;
+    box-sizing: border-box;
+    height: 100%;
+}
 .dispositivo-4 {
     height: 50%;
     width: 50%;
@@ -1133,27 +1139,27 @@ hr.midhr {
     border-right: 0.5em solid #430088;
 }
 #four_models_view .device-name-brand {
-    font-size: 0.8em;
-    color: #391685;
-}
-
-#four_models_view .device-name-model {
-    font-size: 0.7em;
-    color: #391685;
-}
-
-#four_models_view .portate {
     font-size: 0.6em;
     color: #391685;
 }
 
+#four_models_view .device-name-model {
+    font-size: 0.6em;
+    color: #391685;
+}
+
+#four_models_view .portate {
+    font-size: 0.5em;
+    color: #391685;
+}
+
 #four_models_view .texto-precio-oferta {
-    font-size: 0.7em;
+    font-size: 0.6em;
     color: white;
 }
 
 #four_models_view .precio-oferta {
-    font-size: 1.1em;
+    font-size: 0.5em;
     color: white;
 }
 

@@ -995,22 +995,14 @@ hr.midhr {
 .equipo-1{
     border-bottom: 1em solid #430088;   
 }
+
 #two_models_view .device-name-brand {
-    font-size: 1em;
+    font-size: 1.3em;
     color: #391685;    
 }
 
 #two_models_view .device-name-model {
-    font-size: 1em;
-    color: #391685;    
-}
-#two_models_view .device-name-brand {
-    font-size: 2em;
-    color: #391685;    
-}
-
-#two_models_view .device-name-model {
-    font-size: 1.8em;
+    font-size: 1.2em;
     color: #391685;    
 }
 #two_models_view .portate {

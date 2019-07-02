@@ -1206,3 +1206,67 @@ hr.midhr {
         top: 1em;
         left: -0.4em;
 }
+/************5 Dispositivos***********************/
+.dispositivo-5 {
+    height: 20%;
+    width: 100%;
+}
+
+.equipo-1-5 {
+    border-bottom: 1em solid #430088;
+}
+
+#five_models_view .device-name-brand {
+    font-size: 0.8em;
+    color: #391685;
+}
+
+#five_models_view .device-name-model {
+    font-size: 0.7em;
+    color: #391685;
+}
+
+#five_models_view .portate {
+    font-size: 0.8em;
+    color: #391685;
+}
+
+#five_models_view .texto-precio-oferta {
+    font-size: 0.7em;
+    color: white;
+}
+
+#five_models_view .precio-oferta {
+    font-size: 1.1em;
+    color: white;
+}
+
+#five_models_view .texto-cuota-1 {
+    font-size: 0.7em;
+    color: white;
+}
+
+#five_models_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+
+#five_models_view .precio-oferta-2 {
+    font-size: 1em;
+    color: white;
+}
+
+#five_models_view .icospec {
+    width: 2em;
+    padding: 0.2em;
+}
+
+#five_models_view p {
+    font-size: 0.5em;
+    color: white;
+}
+
+#five_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}

@@ -1189,13 +1189,14 @@ hr.midhr {
 #four_models_view .especificaciones {
     background-color: #430088;
     border-radius: 0 1em 1em 0;
+    height: 100%;
 }
-    #four_models_view .especificaciones::after {
+#four_models_view .especificaciones::after {
         content: '';
         position: absolute;
         border-top: 0.5em solid transparent;
         border-bottom: 0.5em solid transparent;
         border-right: 0.5em solid #430088;
         top: 1em;
-        left: -0.5em;
-    }
+        left: -0.4em;
+}

@@ -1126,22 +1126,27 @@ hr.midhr {
 }
 
 .equipo-1-4 {
-    border-bottom: 1em solid #430088;
-    border-right: 1em solid #430088;
+    border-bottom: 0.5em solid #430088;
+    border-right: 0.5em solid #430088;
 }
-
+.equipo-2-4 {
+    border-bottom: 0.5em solid #430088;
+}
+.equipo-3-4 {
+    border-right: 0.5em solid #430088;
+}
 #four_models_view .device-name-brand {
-    font-size: 1em;
+    font-size: 0.8em;
     color: #391685;
 }
 
 #four_models_view .device-name-model {
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: #391685;
 }
 
 #four_models_view .portate {
-    font-size: 0.8em;
+    font-size: 0.6em;
     color: #391685;
 }
 
@@ -1156,12 +1161,12 @@ hr.midhr {
 }
 
 #four_models_view .texto-cuota-1 {
-    font-size: 0.7em;
+    font-size: 0.5em;
     color: white;
 }
 
 #four_models_view .texto-cuota-2 {
-    font-size: 0.5em;
+    font-size: 0.3em;
     color: white;
 }
 

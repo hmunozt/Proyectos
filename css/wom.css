@@ -1070,7 +1070,7 @@ hr.midhr {
 }
 
 #three_models_view .texto-precio-oferta {
-    font-size: 0.7em;
+    font-size: 0.9em;
     color: white;
 }
 
@@ -1090,17 +1090,21 @@ hr.midhr {
 }
 
 #three_models_view .precio-oferta-2 {
-    font-size: 1em;
+    font-size: 0.9em;
     color: white;
 }
 
 #three_models_view .icospec {
     width: 2em;
-    padding: 0.4em;
+    padding: 0.2em;
 }
 
 #three_models_view p {
     font-size: 0.3em;
+    color: white;
+}
+#three_models_view valor-label {
+    font-size: 0.7em;
     color: white;
 }
 
@@ -1264,4 +1268,8 @@ hr.midhr {
 }
 .logo_subtel {
     
+}
+/*************Tamaños Letra******************/
+#three_models_view .precio_normal {
+    font-size: 0.7em;
 }

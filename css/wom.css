@@ -1135,42 +1135,42 @@ hr.midhr {
     border-right: 0.5em solid #430088;
 }
 #four_models_view .device-name-brand {
-    font-size: 0.6em;
+    font-size: 0.9em;
     color: #391685;
 }
 
 #four_models_view .device-name-model {
-    font-size: 0.6em;
+    font-size: 0.7em;
     color: #391685;
 }
 
 #four_models_view .portate {
-    font-size: 0.5em;
+    font-size: 0.7em;
     color: #391685;
 }
 
 #four_models_view .texto-precio-oferta {
-    font-size: 0.6em;
+    font-size: 0.7em;
     color: white;
 }
 
 #four_models_view .precio-oferta {
-    font-size: 0.5em;
+    font-size: 1.1em;
     color: white;
 }
 
 #four_models_view .texto-cuota-1 {
-    font-size: 0.5em;
+    font-size: 0.6em;
     color: white;
 }
 
 #four_models_view .texto-cuota-2 {
-    font-size: 0.3em;
+    font-size: 0.4em;
     color: white;
 }
 
 #four_models_view .precio-oferta-2 {
-    font-size: 1em;
+    font-size: 0.9em;
     color: white;
 }
 
@@ -1201,6 +1201,9 @@ hr.midhr {
         border-right: 0.5em solid #430088;
         top: 1em;
         left: -0.4em;
+}
+#four_models_view .precio-normal {
+    font-size: 0.6em;
 }
 /************5 Dispositivos***********************/
 .dispositivo-5 {

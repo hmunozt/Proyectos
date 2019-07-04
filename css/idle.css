@@ -1,0 +1,354 @@
+@font-face {
+    font-family: CeraText;
+    src: url("../fonts/cera-regular.otf");
+}
+
+@font-face {
+    font-family: CeraText;
+    font-weight: 100;
+    src: url("../fonts/cera-medium.otf");
+}
+
+@font-face {
+    font-family: CeraText;
+    font-weight: bold;
+    src: url("../fonts/cera-bold.otf");
+}
+@font-face {
+    font-family: FuturaText;
+    src: url("../fonts/Futura.ttc");
+}
+
+@font-face {
+    font-family: FuturaText;
+    font-weight: 100;
+    src: url("../fonts/futura-condensedlight.otf");
+}
+
+@font-face {
+    font-family: FuturaText;
+    font-weight: bold;
+    src: url("../fonts/FuturaCondensedBold.otf");
+}
+@font-face {
+    font-family: BebasNeue;
+    src: url("../fonts/BebasNeue-Regular.otf");
+}
+
+@font-face {
+    font-family: BebasNeue;
+    font-weight: bold;
+    src: url("../fonts/BebasNeue-Bold.ttf");
+}
+
+/* Global margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Prevent image bigger than it's original width */
+img{
+    max-width: 100%;
+}
+
+/* Usefull */
+.clearfix {
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+html {
+    height: 100%;
+    font-size: 2vh;
+}
+table
+{ 
+    margin-left: auto;
+    margin-right: auto;
+}
+body {
+    /* Telefonica */
+    background: #FFFFFF; /* Old browsers */
+    background: -moz-linear-gradient(top,  #FFFFFF 0%, #FFFFFF 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#FFFFFF)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #FFFFFF 0%,#FFFFFF 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #FFFFFF 0%,#FFFFFF 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #FFFFFF 0%,#FFFFFF 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #FFFFFF 0%,#FFFFFF 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFFFFF',GradientType=0 ); /* IE6-9 */
+    
+    margin: 0;
+    font-family: 'CeraText';
+    font-weight: normal;
+    font-size: 100%;
+    line-height: 1.5;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+}
+table{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+/* IDLE PAGE STYLES */
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+.container header {
+    display: block;
+    width: 100%;
+    height: 8.4vh;
+    max-height: 150px;
+    padding: 0 0;
+}
+.container .content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 0;
+}
+
+.content .content-left {
+    width: 75vw;
+    margin: 0 0 0 0;
+    line-height: 4vh;
+    padding: 9vh 0 0 5vw;
+    text-align: left;
+}
+.content .content-left span {
+    display: inline;
+    width: inherit;
+    font-size: 7.5vw;;
+    color:#430088;
+    line-height: 1;
+}
+.brand{
+    font-weight: bold;
+}
+.prices_label{
+    position: absolute;
+    top:26vh;
+    color: #430088;
+    font-size: 4.7vw;
+    width: 67vw;
+    text-align: center;
+}
+.prices_container{
+    position: absolute;
+    top:32vh;
+    font-size: 7vw;
+    width: 67vw;
+    height: 33vh;
+    text-align: center;
+    background-color: #da017b;
+    border-radius: 0 2.5vh 2.5vh 0;
+}
+hr.tophr {
+  border: 1px solid #430088;
+  position: absolute;
+  top:22vh;
+  left: 2vw;
+  right: 33vw;
+}
+hr.midhr {
+  border: 1px solid #ffffff;
+  position: relative;
+  top:29vh;
+  left: 0;
+  right: 0;
+}
+.image_column{
+    width: 23vw;
+}
+.price_top_container{
+    text-align: left;
+    line-height: 1;
+    padding: 1.5vh 0 0 5vw;
+}
+.price_top{
+    font-size: 12vw;
+    font-weight: bold;
+}
+.price_top_label{
+    font-size: 6.5vw;
+}
+.price_middle_container{
+    text-align: left;
+    line-height: 0.8;
+    padding: 6vh 0 0 5vw;
+}
+.price_middle{
+    font-size: 10vw;
+    font-weight: bold;
+}
+.price_middle_label{
+    font-size: 5.5vw;
+}
+.price_middle_label2{
+    font-size: 3.5vw;
+}
+.price_middle_messes{
+    position: absolute;
+    right:5vw;
+    font-size: 2.4vw;
+    line-height: 1;
+    width: 10vw;
+    padding: 2.4vh 0 0 0;
+}
+.price_middle_messes_2{
+    position: relative;
+    top: -8vh;
+    left:66vw;
+    width: 10vw;
+    font-size: 5vw;
+}
+.price_bottom_container{
+    text-align: left;
+    line-height: 1;
+    padding: 5vh 0 0 5vw;
+    color: #430088;
+    position: fixed;
+    top:65vh;
+}
+.price_bottom{
+    font-size: 9vw;
+    font-weight: bold;
+}
+.price_bottom_label{
+    font-size: 6.5vw;
+}
+.footer{
+    position: absolute;
+    bottom: 6vh;
+    padding: 4vh 0 0 5vw;
+}
+.footer img{
+    height: 10vh;
+}
+#dynamicslidepvp1, #dynamicslidelegals{
+    background-color: #430088;
+}
+.header{
+    position: absolute;
+    top: 15vh;
+    left: 25vw;
+}
+.currency{
+    font-weight: bold;
+    font-size:8vw;
+}
+#specsconstainer table{
+    height: 100%;
+    width: 100%;
+}
+/* 7-8 icons portrait table styles*/
+#eighticons_portrait{
+    padding: 7vh 0 0 0;
+}
+#eighticons_portrait td { 
+    padding: 6vh 0 0 0;
+    min-width:40vw;
+    height: 15vh;
+}
+#eighticons_portrait p{ 
+    font-size: 5vw;
+    line-height: 1;
+}
+#eighticons_portrait img{ 
+    height: 8vh;
+}
+.header img{
+    width:  40vw;
+}
+.legals_title{
+    position: fixed;
+    top:40vh;
+    left: 25vw;
+    width: 50vw;
+    font-size: 6vw;
+    text-align: left;
+    line-height: 1.1;
+}
+.legals_body{
+    position: fixed;
+    top:65vh;
+    left: 25vw;
+    width: 70vw;
+    font-size: 3vw;
+    text-align: left;
+    line-height: 1.1;
+}
+.content-left{
+  width: 67vw;
+  height: 100%;
+}
+.right-container{
+    width: 33vw;
+    height: 100%;
+}
+.specs-container{
+  position: absolute;
+  top: 8vh;
+  right: 0.5vw;
+  background-color: #430088;
+  height: 88vh;
+  width: 23vw;
+  border-radius: 2.5vh 2.5vh 2.5vh 2.5vh;
+}
+.specs-container:after{
+  content:'';
+  position:absolute;
+  border-top: 3vh solid transparent;
+  border-bottom: 3vh solid transparent;
+  border-right:3vh solid #430088; 
+  top:5vh;
+  left:-3.5vw;
+}
+.spec-item{
+  font-size: 3vw;
+  width: 23vw;
+  text-align: center;
+  position: absolute;
+  right: 0;
+}
+.spec-item img{
+  width: 15vw;
+}
+#spec1{
+  position: absolute;
+  top:7vh;
+}
+#spec2{
+  position: absolute;
+  top:27vh;
+}
+#spec3{
+  position: absolute;
+  top:47vh;
+}
+#spec4{
+  position: absolute;
+  top:67vh;
+}
+/* LADSCAPE */
+@media all and (orientation: landscape) {
+   
+}
+.disabled {
+    display: none !important;
+}
+
+
+

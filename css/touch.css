@@ -121,7 +121,6 @@ table{
 }
 
 .content .content-left {
-    width: 75vw;
     margin: 0 0 0 0;
     line-height: 4vh;
     padding: 9vh 0 0 5vw;
@@ -129,7 +128,6 @@ table{
 }
 .content .content-left span {
     display: inline;
-    width: inherit;
     font-size: 7.5vw;;
     color:#430088;
     line-height: 1;
@@ -142,15 +140,14 @@ table{
     top:26vh;
     color: #430088;
     font-size: 4.7vw;
-    width: 67vw;
-    text-align: center;
+    text-align: left;
+    padding-left: 5vw;
 }
 .prices_container {
     position: absolute;
     top: 32vh;
     font-size: 7vw;
     width: 67vw;
-    height: 33vh;
     text-align: center;
     background-color: #da017b;
     border-radius: 0 2.5vh 2.5vh 0;
@@ -167,7 +164,6 @@ hr.midhr {
     border: 2px solid #ffffff;
     left: 0;
     right: 0;
-    width: 100%;
     position: relative;
     margin-bottom: 0rem;
 }
@@ -177,7 +173,6 @@ hr.midhr {
 .price_top_container{
     text-align: left;
     line-height: 1;
-    padding: 0 0 0 5vw;
 }
 .price_top{
     font-size: 12vw;
@@ -189,7 +184,7 @@ hr.midhr {
 .price_middle_container{
     text-align: left;
     line-height: 0.8;
-    padding: 0 0 0 5vw;
+    padding: 0 0 2vh 5vw;
 }
 .price_middle{
     font-size: 10vw;
@@ -260,7 +255,6 @@ hr.midhr {
     padding: 7vh 0 0 0;
 }
 #eighticons_portrait td { 
-    padding: 6vh 0 0 0;
     min-width:40vw;
     height: 15vh;
 }
@@ -377,9 +371,4 @@ border-color:#DDDDDD;
 a.boton:active{
 color:#BBBBBB;
 border-color:#BBBBBB;
-}
-@media all and (max-width:30em) {
-    a.boton {
-        display: block;
-        margin: 0.4em auto;
 }

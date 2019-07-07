@@ -1326,3 +1326,12 @@ hr.midhr {
 #five_models_view .cuota {
     height: 5vh;
 }
+
+.dispositivo-inicial {
+    height: 70%;
+    width: 100%;
+}
+.dispositivo-final {
+    height: 30%;
+    width: 100%;
+}

@@ -201,10 +201,10 @@ function insertPricetags(models){
     loadDataFromAPI();
 }
 
-//setTimeout(function () { insertPricetags("HTC One"); }, 200);
+setTimeout(function () { insertPricetags("HTC One"); }, 200);
 //setTimeout(function () {insertPricetags("moto g(6)|HTC One"); }, 200);
 //setTimeout(function () { insertPricetags("HTC One|iPhone11,2|moto g(6)"); }, 200);
-setTimeout(function () { insertPricetags("moto g(6)|HTC One|D6603|Aquaris U Plus"); }, 200);
+//setTimeout(function () { insertPricetags("moto g(6)|HTC One|D6603|Aquaris U Plus"); }, 200);
 //setTimeout(function(){insertPricetags("HTC One|moto g(6)|iPhone11,2|Aquaris U Plus|MAR-LX3A"); }, 200);
 function updateHtml(){
     $.each(data, function(key, val) {

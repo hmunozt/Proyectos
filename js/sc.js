@@ -1,580 +1,505 @@
-
-var $SC = {
-
-    // Page variable
-    page : '', // Get current page by body element id attribute
-
-    // Config variables
-    config: {
-        showTrace: false, // Set to false to hide functions tracing in the console log
-        supportedStorage: false,
-        updateTimer: 600000, // Update content every 5 minutes
-        swiperTimerIdle: 15000, // Swipe slides every 5 seconds
-        swiperTimer: 5000, // Swipe slides every 5 seconds
-        API: 'https://demo-spt.smartcircle.net/wom/api.php', // Change this to: "http://demo-spt.smartcircle.net/wom/api.php"
-        testing_locations: ['RXPH98-ZL2213', 'XZYL43-HM6568']
-    },
-
-    // Data variables - variables that can be changed - add more if needed
-    data: {
-        devicescid: '',
-        device1: '',
-        device2: '',
-        device3: '',
-        device4: '',
-        device5: '',
-        device6: '',
-        device7: '',
-        device8: '',
-        device9: '',
-        device10: '',
-        device11: '',
-        device12: '',
-        device13: '',
-        device14: '',
-        device15: '',
-        device16: '',
-        device17: '',
-        device18: '',
-        device19: '',
-        device20: '',
-        device21: '',
-        device22: '',
-        device23: '',
-        device24: '',
-        device25: '',
-        device26: '',
-        device27: '',
-        device28: '',
-        device29: ''
-    },
-
-    // Constant variables
-    model: '',
-    locationkey: '',
-    lang:0,
-    swiperObject: null,
-    updateObject: 0,
-    availableImgaes:['CAMARA.PNG', 'PANTALLA.PNG', 'MEMORIA_EXTERNA.PNG', 'MEMORIA_INTERNA.PNG'],
-    
-    
-
-    // Init SC project function
-    init: function() {
-        $SC.trace('Init $SC project');
-
-        var self = $SC;
-
-        // Set page variable
-        self.page = $('body').attr('id');
-
-        // Trace page variable
-        $SC.trace('page: ' + self.page);
-
-        // Set data variables default values
-        self.model = self.getParameterByName('_model');
-        self.locationkey = self.getParameterByName('_locationkey');
-        self.lang = self.getParameterByName('_lang');
-
-        if (self.model === null || self.model === ''){
-            self.model = 'iPhone11,6';
-        }
-
-        if (self.locationkey === null || self.locationkey === ''){
-            self.locationkey = 'LDTJ63-KZ8913';
-        }
-        self.lang = 0;
-        
-        // Trace constant variables
-        $SC.trace('model: ' + self.model);
-        $SC.trace('locationkey: ' + self.locationkey);
-
-        // Set storage config variables
-        if(typeof(Storage) !== "undefined") {
-            self.config.supportedStorage = true;
-        }
-        else {
-            self.config.supportedStorage = false;
-        }
-
-        // Trace config variables
-        $SC.trace('showTrace: ' + self.config.showTrace);
-        $SC.trace('supportedStorage:' + self.config.supportedStorage);
-
-        $SC.trace('Data object: ');
-        $SC.trace(self.data, true);
-
-        // Allow cross-domain XHR requests
-        $.support.cors = true;
-
-        // Set default data from repository
-        self.setDataFromRepository();
-
-        // Update content from ajax call every #SC.config.updateTimer seconds
-        self.updateContent.start();
-
-        // Start or stop swiper on window blur or focus
-        //self.swiperStartOrStop();
-
-    },
-
-    // Get data parameter by name function
-    getParameterByName: function(name) {
-        $SC.trace('Init $SC.getParameterByName function for: ' + name);
-
-        if (window.location.hash){
-            var hashes = window.location.hash.slice(window.location.hash.indexOf('#') + 1).split('&');
-
-            for(var i = 0; i < hashes.length; i++) {
-                var hash = hashes[i].split('=');
-
-                if(hash.length > 1) {
-
-                    if (hash[0] == name){
-                        return hash[1];
-                    }
-
-                }
-            }
-        }
-        else {
-
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-
-            return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-    },
-
-    // Update HTML function
-    updateHTML: function() {
-        $SC.trace('Init $SC.updateHTML function');
-
-        var self = $SC;
-
-        if ($SC.isEmptyObject(self.data)) return;
-
-        // If page is "lifted" or "touch" init or reset swiper
-        if (self.page == 'lifted' || self.page == 'touch'|| self.page == 'idle') {
-
-            // If swiper exists
-            if (self.swiperObject) {
-                $SC.trace('Swiper RESET');
-
-                // Destroy current swiper
-                //self.swiper.destroy();
-
-                // Set new html data
-                self.setProjectDataValues();
-
-                // Init new swiper
-                //$SC.swiper.init();
-            }
-
-            // If swiper does NOT exists
-            else {
-                $SC.trace('Swiper INIT');
-
-                // Set new html data
-                self.setProjectDataValues();
-
-                // Init swiper
-                $SC.swiper.init();
-            }
-
-            $SC.trace('Swiper slides object: ');
-            $SC.trace(self.swiperObject.slides, true);
-        }
-
-        // If page is "idle"
-        if (self.page == 'idle') {
-            
-            // Set new html data
-            //self.setProjectDataValues();
-
-        }
-
-    },
-
-    // Set project data values
-    setProjectDataValues: function() {
-        $SC.trace('Init $SC.setProjectDataValues function');
-
-        var self = $SC;
-        var last_value = '';
-        
-        
-        // Set new html data
-        $.each(self.data, function(key, val) {
-
-            var initial_key = key.substr(6);
-            
-            // Fill the accessibillity array with available images
-            if (key == 'device12' || key == 'device14' || key == 'device16' || key == 'device18' ||
-                key == 'device20' || key == 'device22' || key == 'device24' || key == 'device26'){
-                
-                if (val !== '' && val !== null){
-                    if (self.availableImgaes.indexOf(self.convertToUpperPng(val)) != -1){
-                        $("[img-id='fld" + initial_key + "']").attr('src','img/'+self.convertToUpperPng(val));
-                    }
-                } 
-                
-            }
-            
-            if (key == 'device7' || key == 'device8' || key == 'device9'){
-                if (val !== null){
-                    if (val.length == 4) {
-                        val = val.substring(0,1)+"."+val.substring(1);
-                    }
-                    else if (val.length == 5) {
-                        val = val.substring(0,2)+"."+val.substring(2);
-                    }
-                    else if (val.length == 6) {
-                        val = val.substring(0,3)+"."+val.substring(3);
-                    }
-                    else if (val.length == 7) {
-                        val = val.substring(0,1)+"."+val.substring(1,4)+"."+val.substring(4);
-                    }
-                }
-            }
-            
-            if (val && val != '0' && val != '0.00' && val != '0,00') {
-                // Set value
-
-                $("[data-id='fld" + initial_key + "']").html(val);
-                $("[data-id='fld" + initial_key + "wrapper']").removeClass('disabled');
-            }
-            // If value is not set
-            else {
-                $("[data-id='fld" + initial_key + "']").html('');
-                $("[data-id='fld" + initial_key + "wrapper']").addClass('disabled');
-            }
-            last_value = val;
-        });
-        
-        
-    },
-
-    // Set storage data
-    setDataFromRepository: function() {
-        $SC.trace('Init $SC.setDataFromRepository function');
-
-        var self = $SC;
-
-        // If localStorage supported
-        if(self.config.supportedStorage && localStorage !== null){
-
-            // Set all data variables from localStorage
-            $.each(self.data, function(key, val) {
-
-                self.data[key] = localStorage.getItem(key);
-            });
-        }
-
-        // If device OS is Android
-        else {
-            if (typeof Android != 'undefined'){
-
-                // Set all data variables from Android storage
-                $.each(self.data, function(key, val) {
-
-                    // Check if value exist and is not empty in Android storage
-                    if (Android.read(key) !== null && Android.read(key) !== '') {
-
-                        self.data[key] = Android.read(key);
-                    }
-                });
-            }
-        }
-        //if no model set it so the swiper can start
-        if (!self.data['devicescid'] )self.data['devicescid'] = self.model;
-        // Update current html with new data
-        self.updateHTML();
-    },
-
-    // Set data from response
-    setDataFromResponse: function(response) {
-        $SC.trace('Init $SC.setDataFromResponse function');
-
-        var self = $SC;
-
-        // If response is NOT empty
-        if (typeof response != 'undefined' && response !== null) {
-
-            // Set repository and html data
-            $.each(response, function (key, val) {
-                
-                // If localStorage supported
-                if (self.config.supportedStorage && localStorage !== null) {
-
-                    // Set all data variables in localStorage
-                    localStorage.setItem('device' + key.substr(3), val);
-                }
-                else {
-                    // If os is Android
-                    if (typeof Android != 'undefined') {
-                        // Set all data variables in Android storage
-                        Android.write('device' + key.substr(3), val);
-                    }
-                }
-
-                // Set data in js object
-                self.data['device' + key.substr(3)] = val;
-            });
-
-            // Return data
-            return self.data;
-        }
-
-        // Return false if response is empty
-        return false;
-    },
-
-    // Update content via ajax request
-    updateContent: {
-        updater: 'undefined',
-        updateTimer: 0,
-        init: function() {
-            $SC.trace('Init $SC.updateContent.init function');
-
-            var self = $SC;
-
-            // Set current date
-            var now = new Date();
-
-            // Set request data
-            var jsonObjects = {model: self.model, locationkey: self.locationkey, lang: self.lang, time: now.getTime()};
-
-            $.ajax({
-                crossDomain: true,
-                url: $SC.config.API,
-                type: 'GET',
-                dataType: "json",
-                cache: false,
-                data: jsonObjects,
-                success: function (response) {
-                    $SC.trace('Ajax success!!!');
-
-                    $SC.trace(response, true);
-
-                    // Update repository if response from ajax
-                    if (self.setDataFromResponse(response)) self.updateHTML();
-                },
-                error: function (error) {
-                    //call it sso swiper can start if no connection or call fails
-                    self.updateHTML();
-                    $SC.trace('Ajax call error: ' + error);
-                }
-            });
-        },
-        start: function() {
-            $SC.trace('Init $SC.updateContent.start function');
-
-            var self = $SC.updateContent;
-
-            self.updateTimer = $SC.config.updateTimer;
-
-            self.init();
-
-            self.updater = setInterval(self.init, self.updateTimer);
-
-        },
-        stop: function() {
-            $SC.trace('Init $SC.updateContent.stop function');
-
-            var self = $SC.updateContent;
-
-            if (self.updater) clearInterval(self.updater);
-        }
-    },
-
-    // Swiper object - documentation from http://www.idangero.us/swiper/api/
-    swiper: {
-        // Init swiper function
-        init: function() {
-            $SC.trace('Init $SC.swiper.init function');
-            
-            var self = $SC;
-            
-            
-            // Create swiper object
-            if (self.page == 'idle') {
-                self.swiperObject = new Swiper('.swiper-container', {
-                    loop: true,
-                    loopedSlides: 0,
-                    autoplay: self.config.swiperTimer, // time for slide to swipe
-                    autoplayDisableOnInteraction: false,
-                    keyboardControl: true,
-                    loopAdditionalSlides: 0,
-                    speed:2000,
-                    effect:'cube',
-                    cube: {
-                        slideShadows: false,
-                        shadow: false
-                      }
-                });
-            }
-            else{
-                self.swiperObject = new Swiper('.swiper-container', {
-                    loop: true,
-                    loopedSlides: 0,
-                    autoplay: self.config.swiperTimer, // time for slide to swipe
-                    autoplayDisableOnInteraction: false,
-                    keyboardControl: true,
-                    loopAdditionalSlides: 0
-                });
-            }
-            
-        },
-        destroy: function() {
-            $SC.trace('Init $SC.swiper.destroy function');
-
-            var self = $SC;
-
-            // Destroy swiper object
-            self.swiperObject.destroy(true,true);
-            self.swiperObject = null;
-
-            // Remove all styles
-            $('.swiper-wrapper').removeAttr('style');
-            $('.swiper-slide').removeAttr('style');
-
-            // Remove slide duplicates
-            $('.swiper-slide-duplicate').remove();
-        },
-        stop: function() {
-            $SC.trace('Init $SC.swiper.stop function');
-
-            var self = $SC;
-
-            // Set the swiper to 1st slide
-            self.swiperObject.slideTo(1, 10, false);
-
-            // Stop swiper autoplay
-            self.swiperObject.stopAutoplay();
-
-        },
-        start: function() {
-            $SC.trace('Init $SC.swiper.start function');
-
-            var self = $SC;
-
-            // Stop swiper autoplay
-            self.swiperObject.startAutoplay();
-        }
-    },
-
-    // Start or stop swiper
-    swiperStartOrStop: function() {
-        $SC.trace('Init $SC.swiperStartOrStop function');
-
-        var self = $SC;
-
-        // On window focus and blur
-        $(window).focus(function() {
-            $SC.trace('Init $(window).focus() function');
-
-            // Start updating content
-            self.updateContent.start();
-
-        }).blur(function() {
-            $SC.trace('Init $(window).blur() function');
-
-            // If swiper
-            if (self.swiperObject) {
-
-                // Stop updating content
-                self.updateContent.stop();
-
-                // Stop swiper
-                //self.swiper.stop();
-            }
-
-            else {
-
-                // Stop updater
-                self.updateContent.stop();
-            }
-
-        });
-    },
-
-    // Trace actions function
-    trace: function (message, hide_time) {
-        var hide_time = hide_time || false;
-
-        var today = new Date();
-
-        // get hours, minutes and seconds
-        var hh = today.getHours().toString();
-        var mm = today.getMinutes().toString();
-        var ss = today.getSeconds().toString();
-        var ms = today.getMilliseconds().toString();
-
-        // Add leading '0' to see 14:08:06.001 instead of 14:8:6.1
-        hh = hh.length == 1 ? "0" + hh : hh;
-        mm = mm.length == 1 ? "0" + mm : mm;
-        ss = ss.length == 1 ? "0" + ss : ss;
-        ms = ms.length == 1 ? "00" + ms : ms.length == 2 ? "0" + ms : ms;
-
-        // set time
-        var time = "UTC " + hh + ':' + mm + ':' + ss + '.' + ms;
-
-        if ($SC.config.showTrace) {
-            if (hide_time)
-                console.log(message);
-            else
-                console.log(time + ' - ' + message);
-        }
-    },
-
-    // Check if object properties are empty
-    isEmptyObject: function(object) {
-        $SC.trace('Init $SC.isEmptyObject function');
-
-        if ($.isEmptyObject(object)) return true;
-
-        var tester = true;
-
-        $.each(object, function(key, val) {
-            if(val) tester = false;
-        });
-
-        return tester;
-    },
-    
-    
-    convertToUpperPng: function(val){
-        val = val.toUpperCase();
-        if (val.indexOf('.PNG') != -1){
-            val = val.substring(0, val.indexOf('.PNG'));
-        }
-        if (val.indexOf('.SVG') != -1){
-            val = val.substring(0, val.indexOf('.SVG'));
-        }
-        val = val + ".PNG";
-        return val;
-    }
-
+var API = 'https://demo-spt.smartcircle.net/wom/api.php';
+var data = {
+    device1scid: '',
+    device11: '',
+    device12: '',
+    device13: '',
+    device14: '',
+    device15: '',
+    device16: '',
+    device17: '',
+    device18: '',
+    device19: '',
+    device110: '',
+    device111: '',
+    device112: '',
+    device113: '',
+    device114: '',
+    device115: '',
+    device116: '',
+    device117: '',
+    device118: '',
+    device119: '',
+    device120: '',
+    device121: '',
+    device122: '',
+    device123: '',
+    device124: '',
+    device125: '',
+    device126: '',
+    device127: '',
+    device128: '',
+    device129: '',
+    device2scid: '',
+    device21: '',
+    device22: '',
+    device23: '',
+    device24: '',
+    device25: '',
+    device26: '',
+    device27: '',
+    device28: '',
+    device29: '',
+    device210: '',
+    device211: '',
+    device212: '',
+    device213: '',
+    device214: '',
+    device215: '',
+    device216: '',
+    device217: '',
+    device218: '',
+    device219: '',
+    device220: '',
+    device221: '',
+    device222: '',
+    device223: '',
+    device224: '',
+    device225: '',
+    device226: '',
+    device227: '',
+    device228: '',
+    device229: '',
+    device3scid: '',
+    device31: '',
+    device32: '',
+    device33: '',
+    device34: '',
+    device35: '',
+    device36: '',
+    device37: '',
+    device38: '',
+    device39: '',
+    device310: '',
+    device311: '',
+    device312: '',
+    device313: '',
+    device314: '',
+    device315: '',
+    device316: '',
+    device317: '',
+    device318: '',
+    device319: '',
+    device320: '',
+    device321: '',
+    device322: '',
+    device323: '',
+    device324: '',
+    device325: '',
+    device326: '',
+    device327: '',
+    device328: '',
+    device329: '',
+    device4scid: '',
+    device41: '',
+    device42: '',
+    device43: '',
+    device44: '',
+    device45: '',
+    device46: '',
+    device47: '',
+    device48: '',
+    device49: '',
+    device410: '',
+    device411: '',
+    device412: '',
+    device413: '',
+    device414: '',
+    device415: '',
+    device416: '',
+    device417: '',
+    device418: '',
+    device419: '',
+    device420: '',
+    device421: '',
+    device422: '',
+    device423: '',
+    device424: '',
+    device425: '',
+    device426: '',
+    device427: '',
+    device428: '',
+    device429: '',
+    device5scid: '',
+    device51: '',
+    device52: '',
+    device53: '',
+    device54: '',
+    device55: '',
+    device56: '',
+    device57: '',
+    device58: '',
+    device59: '',
+    device510: '',
+    device511: '',
+    device512: '',
+    device513: '',
+    device514: '',
+    device515: '',
+    device516: '',
+    device517: '',
+    device518: '',
+    device519: '',
+    device520: '',
+    device521: '',
+    device522: '',
+    device523: '',
+    device524: '',
+    device525: '',
+    device526: '',
+    device527: '',
+    device528: '',
+    device529: ''	
+};
+var modelsArray = [];
+var supportedStorage = true;
+var locationkey = 'RTFC13-SR1111';
+var lang = 0;
+var availableImgaes = ['CAMARA.PNG', 'PANTALLA.PNG', 'MEMORIA_EXTERNA.PNG', 'MEMORIA_INTERNA.PNG'];
+var availableVideos = ['SCREEN_SAVER1.MP4'];
+
+if(typeof(Storage) !== "undefined") {
+    supportedStorage = true;
+}
+else {
+    supportedStorage = true;
 }
 
-// load project functions after document DOM is ready
-$(document).ready(function() {
+function getParameterByName(name) {
 
-    // Init project
-    $SC.init();
-});
+    if (window.location.hash){
+        var hashes = window.location.hash.slice(window.location.hash.indexOf('#') + 1).split('&');
 
+        for(var i = 0; i < hashes.length; i++) {
+            var hash = hashes[i].split('=');
 
-//reinit swiper on resize
-var resizeTimer;
-window.onresize = function(){
-    if (resizeTimer){
-        clearTimeout(resizeTimer);
-    } 
-    resizeTimer = setTimeout(function(){
-        $SC.updateHTML(); 
-    }, 100);
-};
+            if(hash.length > 1) {
+
+                if (hash[0] == name){
+                    return hash[1];
+                }
+
+            }
+        }
+    }
+    else {
+
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+
+        return results == null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+}
+function insertPricetags(models){
+    modelsArray = models.split("|");
+    while (modelsArray.length > 5){
+        modelsArray.pop();
+    }
+    loadDataFromRepository();
+    loadDataFromAPI();
+}
+
+//setTimeout(function () { insertPricetags("HTC One"); }, 200);
+//setTimeout(function () {insertPricetags("moto g(6)|HTC One"); }, 200);
+//setTimeout(function () { insertPricetags("HTC One|iPhone11,2|moto g(6)"); }, 200);
+setTimeout(function () { insertPricetags("moto g(6)|HTC One|D6603|Aquaris U Plus"); }, 200);
+//setTimeout(function(){insertPricetags("HTC One|moto g(6)|iPhone11,2|Aquaris U Plus|MAR-LX3A"); }, 200);
+function updateHtml(){
+    $.each(data, function(key, val) {
+        
+        var initial_key = key.substr(7);
+        var initial_key_device = key.substr(6);
+        
+        
+        if (initial_key == '16' || initial_key == '18' ||
+            initial_key == '20' || initial_key == '22'){
+            
+            if (val !== '' && val !== null){
+                if (availableImgaes.indexOf(convertToUpperPng(val)) != -1){
+                    $("[img-id='device" + initial_key_device + "']").attr('src','img/'+convertToUpperPng(val));
+                }
+            }
+        }
+        
+        if (initial_key == '7' || initial_key == '8' || initial_key == '9'){
+            if (val !== null){
+                if (val.length == 4) {
+                    val = val.substring(0,1)+"."+val.substring(1);
+                }
+                else if (val.length == 5) {
+                    val = val.substring(0,2)+"."+val.substring(2);
+                }
+                else if (val.length == 6) {
+                    val = val.substring(0,3)+"."+val.substring(3);
+                }
+            }
+        }
+        
+        $("[data-id='" + key + "']").html(val);
+        
+        if (val === null || val === ""){
+            $("[data-id='" + key + "wrapper']").addClass('disabled');
+        }
+        else{
+            $("[data-id='" + key + "wrapper']").removeClass('disabled');
+        }
+        
+    });
+}
+function loadDataFromRepository(){
+    
+    if (modelsArray.length == 1) {
+        
+        $("#two_models_view").addClass('disabled');
+        $("#three_models_view").addClass('disabled');		
+		$("#four_models_view").addClass('disabled');	
+		$("#five_models_view").addClass('disabled');
+        $("#one_model_view").removeClass('disabled');
+        loadDataDevice1();
+        resetDataDevice("device2");
+        resetDataDevice("device3");
+        resetDataDevice("device4");
+		resetDataDevice("device5");
+    }
+    if (modelsArray.length == 2) {
+        
+        $("#one_model_view").addClass('disabled');
+        $("#three_models_view").addClass('disabled');
+		$("#four_models_view").addClass('disabled');
+		$("#five_models_view").addClass('disabled');
+        $("#two_models_view").removeClass('disabled');
+        
+        loadDataDevice1();
+        loadDataDevice2();
+        resetDataDevice("device3");
+        resetDataDevice("device4");
+		resetDataDevice("device5");
+    }
+    if (modelsArray.length == 3) {
+        
+        $("#one_model_view").addClass('disabled');
+        $("#two_models_view").addClass('disabled');
+		$("#four_models_view").addClass('disabled');
+		$("#five_models_view").addClass('disabled');
+        $("#three_models_view").removeClass('disabled');
+        
+        loadDataDevice1();
+        loadDataDevice2();
+        loadDataDevice3();
+        resetDataDevice("device4");
+		resetDataDevice("device5");
+    }
+    if (modelsArray.length == 4) {
+        
+        $("#one_model_view").addClass('disabled');
+        $("#two_models_view").addClass('disabled');
+        $("#three_models_view").addClass('disabled');
+        $("#five_models_view").addClass('disabled');
+        $("#four_models_view").removeClass('disabled');
+        
+        loadDataDevice1();
+        loadDataDevice2();
+        loadDataDevice3();
+        loadDataDevice4();
+		resetDataDevice("device5");
+    }
+    if (modelsArray.length == 5) {
+        
+        $("#one_model_view").addClass('disabled');
+        $("#two_models_view").addClass('disabled');
+        $("#three_models_view").addClass('disabled');
+		$("#four_models_view").addClass('disabled');
+        $("#five_models_view").removeClass('disabled');
+        
+        loadDataDevice1();
+        loadDataDevice2();
+        loadDataDevice3();
+        loadDataDevice4();
+		loadDataDevice5();
+    }	
+    updateHtml();
+}
+
+function loadDataToRepository(response){
+    if (typeof response != 'undefined' && response !== null) {
+        var current_scid = response.fldscid;
+        $.each(response, function (key, val) {
+            // If localStorage supported
+            if (supportedStorage && localStorage !== null) {
+
+                // Set all data variables in localStorage
+                localStorage.setItem('device' + current_scid + key.substr(3), val);
+            }
+            else {
+                // If os is Android
+                if (typeof Android != 'undefined') {
+                    // Set all data variables in Android storage
+                    Android.write('device' + current_scid + key.substr(3), val);
+                }
+            }
+        
+        });
+        return data;
+    }
+    return false;
+}
+function loadDataFromAPI(){
+    var now = new Date();
+    for (var i = 0; i < modelsArray.length; i++) {
+        
+        var jsonObjects = {model: modelsArray[i], locationkey: locationkey, lang: lang, time: now.getTime()};
+        
+        $.ajax({
+            crossDomain: true,
+            url: API,
+            type: 'GET',
+            dataType: "json",
+            cache: false,
+            data: jsonObjects,
+            success: function (response) {
+                if (loadDataToRepository(response)) loadDataFromRepository();
+            },
+            error: function (error) {
+            }
+        });
+    }
+}
+
+function loadDataDevice1(){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        if (key_base == "device1"){
+            var search_base = "device"+modelsArray[0];
+            var initial_key = key.substr(7);
+            if(supportedStorage && localStorage !== null){
+                if (localStorage.getItem(search_base+initial_key) !== null && localStorage.getItem(search_base+initial_key) !== "null"){
+                    self.data[key] = localStorage.getItem(search_base+initial_key);
+                }
+            }
+            else {
+                if (typeof Android != 'undefined'){
+                    if (Android.read(search_base+initial_key) !== null && Android.read(search_base+initial_key) !== "null") {
+                        self.data[key] = Android.read(search_base+initial_key);
+                    }
+                }
+            }
+        }
+    });
+}
+function loadDataDevice2(){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        var search_base = "device"+modelsArray[1];
+        if (key_base == "device2"){
+            
+            var initial_key = key.substr(7);
+            
+            if(supportedStorage && localStorage !== null){
+                
+                if (localStorage.getItem(search_base+initial_key) !== null && localStorage.getItem(search_base+initial_key) !== "null"){
+                    self.data[key] = localStorage.getItem(search_base+initial_key);
+                }
+            }
+            else {
+                if (typeof Android != 'undefined'){
+                    if (Android.read(search_base+initial_key) !== null && Android.read(search_base+initial_key) !== "null") {
+                        self.data[key] = Android.read(search_base+initial_key);
+                    }
+                }
+            }
+        }
+    });
+}
+function loadDataDevice3(){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        var search_base = "device"+modelsArray[2];
+        if (key_base == "device3"){
+            var initial_key = key.substr(7);
+            if(supportedStorage && localStorage !== null){
+                if (localStorage.getItem(search_base+initial_key) !== null && localStorage.getItem(search_base+initial_key) !== "null"){
+                    data[key] = localStorage.getItem(search_base+initial_key);
+                }
+            }
+            else {
+                if (typeof Android != 'undefined'){
+                    if (Android.read(search_base+initial_key) !== null && Android.read(search_base+initial_key) !== "null") {
+                        self.data[key] = Android.read(search_base+initial_key);
+                    }
+                }
+            }
+        }
+    });
+}
+function loadDataDevice4(){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        var search_base = "device"+modelsArray[3];
+        if (key_base == "device4"){
+            var initial_key = key.substr(7);
+            if(supportedStorage && localStorage !== null){
+                if (localStorage.getItem(search_base+initial_key) !== null && localStorage.getItem(search_base+initial_key) !== "null"){
+                    data[key] = localStorage.getItem(search_base+initial_key);
+                }
+            }
+            else {
+                if (typeof Android != 'undefined'){
+                    if (Android.read(search_base+initial_key) !== null && Android.read(search_base+initial_key) !== "null") {
+                        self.data[key] = Android.read(search_base+initial_key);
+                    }
+                }
+            }
+        }
+    });
+}
+function loadDataDevice5(){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        var search_base = "device"+modelsArray[4];
+        if (key_base == "device5"){
+            var initial_key = key.substr(7);
+            if(supportedStorage && localStorage !== null){
+                if (localStorage.getItem(search_base+initial_key) !== null && localStorage.getItem(search_base+initial_key) !== "null"){
+                    data[key] = localStorage.getItem(search_base+initial_key);
+                }
+            }
+            else {
+                if (typeof Android != 'undefined'){
+                    if (Android.read(search_base+initial_key) !== null && Android.read(search_base+initial_key) !== "null") {
+                        self.data[key] = Android.read(search_base+initial_key);
+                    }
+                }
+            }
+        }
+    });
+}
+function resetDataDevice(deviceid){
+    $.each(data, function(key, val) {
+        var key_base = key.substr(0,7);
+        if (key_base == deviceid){
+            data[key] = "";
+        }
+    });
+}
+
+function convertToUpperPng(val){
+    val = val.toUpperCase();
+    if (val.indexOf('.PNG') != -1){
+        val = val.substring(0, val.indexOf('.PNG'));
+    }
+    if (val.indexOf('.SVG') != -1){
+        val = val.substring(0, val.indexOf('.SVG'));
+    }
+    val = val + ".PNG";
+    return val;
+}
+function convertToUpperMP4(val){
+    val = val.toUpperCase();
+    if (val.indexOf('.MP4') != -1){
+        val = val.substring(0, val.indexOf('.MP4'));
+    }
+    val = val + ".MP4";
+    return val;
+}

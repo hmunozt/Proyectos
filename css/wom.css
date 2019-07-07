@@ -1,0 +1,1328 @@
+@font-face {
+    font-family: CeraText;
+    src: url("../fonts/cera-regular.otf");
+}
+
+@font-face {
+    font-family: CeraText;
+    font-weight: 100;
+    src: url("../fonts/cera-medium.otf");
+}
+
+@font-face {
+    font-family: CeraText;
+    font-weight: bold;
+    src: url("../fonts/cera-bold.otf");
+}
+
+@font-face {
+    font-family: FuturaText;
+    src: url("../fonts/Futura.ttc");
+}
+
+@font-face {
+    font-family: FuturaText;
+    font-weight: 100;
+    src: url("../fonts/futura-condensedlight.otf");
+}
+
+@font-face {
+    font-family: FuturaText;
+    font-weight: bold;
+    src: url("../fonts/FuturaCondensedBold.otf");
+}
+
+@font-face {
+    font-family: BebasNeue;
+    src: url("../fonts/BebasNeue-Regular.otf");
+}
+
+@font-face {
+    font-family: BebasNeue;
+    font-weight: bold;
+    src: url("../fonts/BebasNeue-Bold.ttf");
+}
+
+/* Global margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent image bigger than it's original width */
+img {
+    max-width: 100%;
+}
+
+/* Usefull */
+.clearfix {
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+html {
+    height: 100%;
+    font-size: 2vh;
+}
+
+body {
+    /* Tigo */
+    background: #FFFFFF; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#FFFFFF)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#FFFFFF 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #FFFFFF 0%,#FFFFFF 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #FFFFFF 0%,#FFFFFF 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #FFFFFF 0%,#FFFFFF 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFFFFF',GradientType=0 ); /* IE6-9 */
+    margin: 0;
+    font-family: 'CeraText';
+    font-weight: normal;
+    font-size: 100%;
+    line-height: 1;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-weight: 100;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    color: #5c1c7a;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+#one_device_table {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+}
+
+    #one_device_table tr {
+        margin: 0;
+        padding: 0;
+    }
+
+.right-container {
+    width: 35vw;
+    max-width: 35vw;
+    height: 100vh;
+    border: 2vh solid #430088;
+    box-sizing: border-box;
+}
+
+#rigt_video {
+    width: auto;
+    height: 50%;
+    object-fit: fill;
+}
+
+#name_table {
+    height: 30%;
+    width: 100%;
+    color: #430088;
+}
+
+    #name_table td {
+        width: 100%;
+        text-align: center;
+    }
+
+.contando-container {
+    width: 100%;
+}
+
+.device-name-brand {
+    font-size: 9vw;
+}
+
+.device-name-model {
+    font-size: 5vw;
+}
+
+.device-name {
+    text-align: left;
+    padding: 0 0 0 8vw;
+}
+
+.contado-lebel {
+    text-align: left;
+    font-size: 2.3vw;
+    padding: 0 0 0 8vw;
+}
+
+#vozar_table {
+    height: 20vh;
+    width: 100%;
+    left: 1.7vh;
+}
+
+#muddle_table {
+    height: 40vh;
+    width: 60%;
+    left: 1.7vh;
+}
+
+    #muddle_table td {
+        width: 50%;
+    }
+
+.price-table {
+    width: 100%;
+    background-color: #da017b;
+    padding: 1vh 0;
+}
+
+.specs-table {
+    width: 83%;
+    height: 19vh;
+    background-color: #430088;
+    margin: 0 0 0 3vw;
+    border-radius: 0 2.5vh 2.5vh 0;
+}
+
+.price-table table {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+}
+
+.initial-label, .valor-label {
+    font-size: 3vw;
+}
+
+.mansual-label {
+    font-size: 1.9vw;
+}
+
+.mansual-label2 {
+    font-size: 1.2vw;
+}
+
+.initial-price, .mansual-price, .valor-price {
+    font-size: 7vw;
+}
+
+.prices {
+    padding: 0 0 0 5vw;
+}
+
+hr.pricehr {
+    width: 28vw;
+    margin: 2vh 1vw 1vh 0;
+}
+
+hr.specshr {
+    position: relative;
+    margin: 0 1vw 0 0;
+}
+
+#fouricons_portrait {
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+    #fouricons_portrait img {
+        width: 4vw;
+    }
+
+#bottom_table {
+    height: 10vh;
+    width: 100%;
+    left: 0;
+    color: #430088;
+}
+
+    #bottom_table td {
+        width: 100%;
+        padding: 1vh 0 0 0;
+    }
+
+.icon-footer img {
+    width: 12vw;
+}
+
+.icon-footer {
+    text-align: right;
+}
+
+/**************** 2 models **************************/
+
+#two_devices_table {
+    height: 100%;
+    width: 50%;
+    padding: 0 0 0 0;
+}
+
+    #two_devices_table td {
+        padding: 0;
+        margin: 0;
+    }
+
+.left-container2, .right-container2 {
+    width: 40vw;
+    height: 100vh;
+    border: 2vh solid #430088;
+    box-sizing: border-box;
+}
+
+#name_table1, #name_table2 {
+    margin: 0 0 5vh 0;
+    color: #430088;
+    width: 100%;
+}
+
+    #name_table1 td, #name_table2 td {
+        text-align: center;
+    }
+
+#muddle_table1, #muddle_table2 {
+    height: 30vh;
+    width: 100%;
+}
+
+    #muddle_table1 td, #muddle_table2 td {
+        padding: 0 1vw 0 0;
+    }
+
+.monthly-price-table td {
+    padding: 0 0 0 0 !important;
+}
+
+#two_models_view .prices {
+    padding: 0 0 0 3vw;
+}
+
+#two_models_view .specs-table {
+    width: 100%;
+    margin: 0 0 0 0;
+    height: 100%;
+}
+
+#two_models_view .price-table {
+    width: 100%;
+}
+
+#two_models_view .device-name {
+    text-align: left;
+    padding: 0 0 0 3vw;
+}
+
+#two_models_view .name-container {
+    width: 50%;
+}
+
+#two_models_view .contando-container {
+    width: 50%;
+    padding: 1vh 0 0 0;
+}
+
+#two_models_view .contado-lebel {
+    padding: 0 0 0 3vw;
+    font-size: 2vw;
+}
+
+#bottom_table1, #bottom_table2 {
+    padding: 5vh 0 0 0;
+}
+
+    #bottom_table1 td, #bottom_table2 td {
+        width: 23vw;
+        color: #430088;
+    }
+
+#specs_table21:after {
+    content: '';
+    border-top: 4vh solid transparent;
+    border-bottom: 4vh solid transparent;
+    border-right: 4vh solid #430088;
+}
+
+#two_models_view .initial-label, #two_models_view .valor-label, #two_models_view .mansual-label {
+    font-size: 2.5vw;
+}
+
+#two_models_view .mansual-label {
+    font-size: 1.5vw;
+}
+
+#two_models_view .mansual-label2 {
+    font-size: 1vw;
+}
+
+#two_models_view .initial-price, #two_models_view .mansual-price, #two_models_view .valor-price {
+    font-size: 3.6vw;
+}
+
+hr.price21hr, hr.price22hr {
+    width: 20vw;
+    margin: 4vh -3vw 2vh -3.1vw;
+}
+
+hr.specs21hr, hr.specs22hr {
+    position: relative;
+    margin: 0 2.5vw 0 2vw;
+}
+/**************** 3 models **************************/
+#threee_models_table {
+    height: 100vh;
+    width: 96vw;
+    margin: 0 0 0 2.7vw;
+}
+
+    #threee_models_table td {
+        width: 20vw;
+    }
+
+.content .content-left {
+    margin: 0 0 3vh 0;
+    line-height: 4vh;
+    padding: 2vh 0 0 2vw;
+    text-align: left;
+}
+
+    .content .content-left span {
+        display: inline;
+        font-size: 2.5vw;
+        ;
+        color: #430088;
+        line-height: 1;
+    }
+
+.prices_label {
+    color: #430088;
+    font-size: 1.2vw;
+    width: 20vw;
+    text-align: center;
+    margin: 4vh 0 0 0;
+}
+
+.prices_container {
+    font-size: 2vw;
+    width: 20vw;
+    height: 27vh;
+    text-align: center;
+    background-color: #da017b;
+    margin: 3vh 0 0 0;
+    border-radius: 0 2.5vh 2.5vh 0;
+    color: #ffffff;
+}
+
+hr.tophr {
+    width: 20vw;
+}
+
+hr.midhr {
+    margin: -13.5vh 0 0 0;
+    width: 18vw;
+}
+
+.image_column {
+    width: 23vw;
+}
+
+.price_top_container {
+    text-align: left;
+    line-height: 1;
+    padding: 2vh 0 5vh 2vw;
+}
+
+.price_top {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.price_top_label {
+    font-size: 1.7vw;
+}
+
+.price_middle_container {
+    text-align: left;
+    line-height: 0.65;
+    margin: 0 0 0 2vw;
+    width: 20vw;
+}
+
+.price_middle {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.price_middle_label {
+    font-size: 1.4vw;
+}
+
+.price_middle_label2 {
+    font-size: 0.9vw;
+}
+
+.price_middle_messes {
+    font-size: 0.7vw;
+    line-height: 1;
+    width: 5vw;
+    padding: 0 0 0 0;
+}
+
+.price_middle_messes_2 {
+    font-size: 1vw;
+    line-height: 1;
+}
+
+.price_bottom_container {
+    text-align: left;
+    line-height: 1;
+    padding: 17vh 0 0 2vw;
+    color: #430088;
+}
+
+.price_bottom {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.price_bottom_label {
+    font-size: 1.7vw;
+}
+
+.footer {
+    padding: 6vh 0 0 2vw;
+}
+
+    .footer img {
+        height: 8vh;
+    }
+
+.monthly-price-table {
+    width: 21vw;
+    padding: 1vh 0 0 0;
+}
+
+    .monthly-price-table td {
+        vertical-align: middle;
+        text-align: left;
+        width: auto !important;
+    }
+
+    .monthly-price-table span {
+        line-height: 0.4;
+    }
+
+.specs-column {
+    height: 77vh;
+    margin: 5vh 0 0 0;
+    width: 6vw;
+    background-color: #430088;
+    border-radius: 1.7vh 1.7vh 0 0;
+}
+
+    .specs-column table {
+        color: #ffffff;
+    }
+
+        .specs-column table tr {
+            height: 19vh;
+        }
+
+        .specs-column table td {
+            text-align: center;
+        }
+
+            .specs-column table td img {
+                width: 4vw;
+            }
+
+.purple-stripe:after {
+    content: "";
+    display: block;
+    position: relative;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid #430088;
+
+}
+/**************** 4 models **************************/
+#four_models_table {
+    height: 100vh;
+    width: 96vw;
+    margin: 0 0 0 4vw;
+}
+
+    #four_models_table td {
+        width: 24vw;
+    }
+
+    #four_models_table .content-left {
+        margin: 0 0 3vh 0;
+        line-height: 4vh;
+        padding: 2vh 0 0 2vw;
+        text-align: left;
+    }
+
+        #four_models_table .content-left span {
+            display: inline;
+            font-size: 2.7vw;
+            ;
+            color: #430088;
+            line-height: 1;
+        }
+
+    #four_models_table .prices_label {
+        color: #430088;
+        font-size: 1.2vw;
+        width: 20vw;
+        text-align: center;
+        margin: 4vh 0 0 0;
+    }
+
+    #four_models_table .prices_container {
+        font-size: 1.6vw;
+        width: 20vw;
+        height: 27vh;
+        text-align: center;
+        background-color: #da017b;
+        margin: 3vh 0 0 0;
+        border-radius: 0 2.5vh 2.5vh 0;
+        color: #ffffff;
+    }
+
+    #four_models_table hr.tophr {
+        border: 1px solid #430088;
+        width: 20vw;
+    }
+
+    #four_models_table hr.midhr {
+        border: 1px solid #ffffff;
+        margin: -13.5vh 0 0 0;
+    }
+
+    #four_models_table .image_column {
+        width: 20vw;
+    }
+
+    #four_models_table .price_top_container {
+        text-align: left;
+        line-height: 1;
+        padding: 2vh 0 5vh 2vw;
+    }
+
+    #four_models_table .price_top {
+        font-size: 3.4vw;
+        font-weight: bold;
+    }
+
+    #four_models_table .price_top_label {
+        font-size: 1.7vw;
+    }
+
+    #four_models_table .price_middle_container {
+        text-align: left;
+        line-height: 0.75;
+        margin: 1vh 0 0 2vw;
+        width: 20vw;
+    }
+
+    #four_models_table .price_middle {
+        font-size: 3.3vw;
+        font-weight: bold;
+    }
+
+    #four_models_table .price_middle_label {
+        font-size: 1.6vw;
+    }
+
+    #four_models_table .price_middle_label2 {
+        font-size: 1vw;
+    }
+
+    #four_models_table .price_middle_messes {
+        font-size: 0.9vw;
+        line-height: 1;
+        width: 5vw;
+        padding: 0 0 0 0;
+    }
+
+    #four_models_table .price_middle_messes_2 {
+        font-size: 1vw;
+        line-height: 1;
+    }
+
+    #four_models_table .price_bottom_container {
+        text-align: left;
+        line-height: 1;
+        padding: 17vh 0 0 2vw;
+        color: #430088;
+    }
+
+    #four_models_table .price_bottom {
+        font-size: 2.7vw;
+        font-weight: bold;
+    }
+
+    #four_models_table .price_bottom_label {
+        font-size: 1.8vw;
+    }
+
+    #four_models_table .footer {
+        padding: 6vh 0 0 2vw;
+    }
+
+        #four_models_table .footer img {
+            height: 8vh;
+        }
+
+    #four_models_table .monthly-price-table {
+        width: 19vw;
+        padding: 1vh 0 0 0;
+    }
+
+        #four_models_table .monthly-price-table td {
+            vertical-align: middle;
+            text-align: left;
+            width: auto !important;
+        }
+
+        #four_models_table .monthly-price-table span {
+            line-height: 0.4;
+        }
+/******************************************/
+
+.footer-image {
+    max-height: 8vh;
+}
+
+.disabled {
+    display: none !important;
+}
+
+.currency {
+    font-size: 2.5vw;
+}
+
+.brand {
+    font-weight: bold;
+}
+
+/****** vOzAr Code ***********************/
+
+#bottom_video {
+    width: 90vw;
+    vertical-align: middle;
+    object-fit: fill;
+}
+
+.top-container, .bottom-container {
+    width: 100vw;
+    height: 50vh;
+    border: 2vh solid #430088;
+    box-sizing: border-box;
+}
+
+#muddle_table_v {
+    height: 40%;
+    width: 100%;
+}
+
+    #muddle_table_v td {
+        width: 50%;
+    }
+
+#bottom_table_v {
+    height: 30%;
+
+    color: #430088;
+    padding: 0 3vw;
+}
+
+    #bottom_table_v td {
+
+        padding: 1vh 0 0 0;
+    }
+
+#device_table {
+    position: relative;
+    border-spacing: 0;
+    border: 2vh solid #430088;
+}
+#three_device_table {
+    position: relative;
+    width: 100%;
+    height: 33vh;
+    border-spacing: 0;
+}
+#three_device_table .initial-price, .mansual-price, .valor-price {
+        font-size: 3vw;
+    }
+.specs-table-three {
+    width: 83%;
+    height: 15vh;
+    background-color: #430088;
+    margin: 0 0 0 3vw;
+    border-radius: 0 1vh 1vh 0;
+    font-size: 1.5vh;
+}
+.contenedor_tres_modelos{
+    max-height: 100vh;
+    border: 1vh solid #430088;
+    position: relative; 
+}
+
+.contenedor_tres_modelos .device-name-brand {
+    font-size: 3vh;
+}
+.contenedor_tres_modelos .device-name-model {
+    font-size: 2vh;
+}
+
+.contenedor_tres_modelos hr.pricehr {
+    width: 28vw;
+    margin: 1vh 0vw 0.5vh 0;
+}
+.contenedor_tres_modelos .prices {
+        padding: 0 0 0 8vw;
+}
+.specs-table-three img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 3vh;
+}
+.three-hijo {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#five_models_view .device-name-brand {
+    font-size: 2.5vh;
+}
+#five_models_view .device-name-model {
+    font-size: 2vh;
+}
+
+#five_models_view .oferta .initial-price {
+    font-size: 2.5vh;
+}
+#five_models_view .oferta .initial-label {
+    font-size: 1.5vh;
+}
+#five_models_view section {
+    width: 100%;
+    height: 20%;
+}
+.oferta {
+    background-color: #da017b;
+    border-radius: 0 1em 0 0;
+    border: 0;
+    margin-bottom: 0.4vh;
+    padding-bottom: 0.6vh;
+    height: 10vh;
+}
+.cuota {
+    background-color: #da017b;
+    border-radius: 0 0 1em 0;
+    border: 0;
+    height: 10vh;    
+   }
+
+.especificaciones {
+    background-color: #430088;
+    height: 20vh;
+}
+.icospec {
+    width: 2em;
+}
+.borde_abajo {
+    border-bottom: 1% solid #430088;
+}
+.borde_derecha {
+    border-right: 1% solid #430088;
+}
+.borde-wom {
+    padding: 0;
+    border: 1em solid #430088;
+    box-sizing: border-box;
+    height: 100%;
+}
+.barra_wom_white {
+    border-top: 1px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+}
+.barra_wom_white-3 {
+    border-top: 1px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.1em;
+    margin-bottom: 0.1rem;
+}
+
+.barra_wom {
+    border-top: 4px solid #391685;
+    margin: 0px;
+}
+#four_models_view section{
+    width: 50%;
+    height: 50%;
+}
+
+#four_models_view .device-name-brand {
+    font-size: 2vh;
+}
+
+#four_models_view .device-name-model {
+    font-size: 1.5vh;
+}
+#four_models_view .oferta .initial-price {
+    font-size: 3.5vh;
+}
+
+#four_models_view .oferta .initial-label {
+    font-size: 1.5vh;
+}
+
+#four_models_view .especificaciones p {
+    font-size: 0.7vh;
+}
+
+#three_models_view .device-name-brand {
+    font-size: 2.5vh;
+}
+
+#three_models_view .device-name-model {
+    font-size: 2vh;
+}
+
+#three_models_view .oferta .initial-price {
+    font-size: 3.5vh;
+}
+
+#three_models_view .oferta .initial-label {
+    font-size: 3vh;
+}
+
+
+.dispositivo-1 {
+    height: 50%;
+    width: 100%;
+}
+.equipo-1{
+    border-bottom: 1em solid #430088;   
+}
+#two_models_view .device-name-brand {
+    font-size: 1em;
+    color: #391685;    
+}
+
+#two_models_view .device-name-model {
+    font-size: 1em;
+    color: #391685;    
+}
+#one_model_view .device-name-brand {
+    font-size: 2em;
+    color: #391685;    
+}
+
+#one_model_view .device-name-model {
+    font-size: 1.8em;
+    color: #391685;    
+}
+#one_model_view .portate {
+    font-size: 1.0em;
+    color: #391685;
+}
+#one_model_view .oferta .initial-price {
+    font-size: 1.5em;
+}
+#one_model_view .texto-precio-oferta {
+    font-size: 1.1em;
+    color: white;
+}
+#one_model_view .precio-oferta {
+    font-size: 1.5em;
+    color: white;
+}
+#one_model_view .texto-cuota-1 {
+    font-size: 0.8em;
+    color: white;
+}
+#one_model_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+#one_model_view .precio-oferta-2 {
+    font-size: 1.2em;
+    color: white;
+}
+#one_model_view p{
+    font-size: 0.5em;
+    color: white;
+}
+#one_model_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}
+/***** 2 Dispositivos **********/
+.dispositivo-2 {
+    height: 50%;
+    width: 100%;
+}
+.equipo-1{
+    border-bottom: 1em solid #430088;   
+}
+
+#two_models_view .device-name-brand {
+    font-size: 1.3em;
+    color: #391685;    
+}
+
+#two_models_view .device-name-model {
+    font-size: 1.2em;
+    color: #391685;    
+}
+#two_models_view .portate {
+    font-size: 1.0em;
+    color: #391685;
+}
+#two_models_view .oferta .initial-price {
+    font-size: 1.5em;
+}
+#two_models_view .texto-precio-oferta {
+    font-size: 1em;
+    color: white;
+}
+#two_models_view .precio-oferta {
+    font-size: 1.5em;
+    color: white;
+}
+#two_models_view .texto-cuota-1 {
+    font-size: 0.8em;
+    color: white;
+}
+#two_models_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+#two_models_view .precio-oferta-2 {
+    font-size: 1.2em;
+    color: white;
+}
+#two_models_view .icospec {
+    padding: 0.4em;
+}
+#two_models_view p{
+    font-size: 0.5em;
+    color: white;
+}
+#two_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}
+/************3 Dispositivos***********************/
+.dispositivo-3 {
+    height: 33%;
+    width: 100%;
+}
+
+.equipo-1 {
+    border-bottom: 1em solid #430088;
+}
+
+#three_models_view .device-name-brand {
+    font-size: 1.1em;
+    color: #391685;
+}
+
+#three_models_view .device-name-model {
+    font-size: 1em;
+    color: #391685;
+}
+
+#three_models_view .portate {
+    font-size: 0.8em;
+    color: #391685;
+}
+
+#three_models_view .texto-precio-oferta {
+    font-size: 0.9em;
+    color: white;
+}
+
+#three_models_view .precio-oferta {
+    font-size: 1.1em;
+    color: white;
+}
+
+#three_models_view .texto-cuota-1 {
+    font-size: 0.7em;
+    color: white;
+}
+
+#three_models_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+
+#three_models_view .precio-oferta-2 {
+    font-size: 0.9em;
+    color: white;
+}
+
+#three_models_view .icospec {
+    padding: 0.2em;
+}
+
+#three_models_view p {
+    font-size: 0.3em;
+    color: white;
+}
+#three_models_view valor-label {
+    font-size: 0.7em;
+    color: white;
+}
+
+#three_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}
+/************4 Dispositivos***********************/
+.borde-wom-4 {
+    padding: 0;
+    border: 15px solid #430088;
+    max-height:100%;
+    max-width:100%;
+}
+.borde-wom-4-1 {
+    padding: 0;
+    border-bottom: 15px solid #430088;
+    box-sizing: border-box;
+    height: 100%;
+}
+.borde-wom-5 {
+    outline: 15px solid #430088;
+}
+
+.dispositivo-4 {
+    width: 50%;
+}
+
+.equipo-1-4 {
+    border-bottom: 1vh solid #430088;
+    border-right: 1vh solid #430088;
+}
+.equipo-2-4 {
+    border-bottom: 1vh solid #430088;
+}
+.equipo-3-4 {
+    border-right: 1vh solid #430088;
+}
+#four_models_view .device-name-brand {
+    font-size: 0.9em;
+    color: #391685;
+}
+
+#four_models_view .device-name-model {
+    font-size: 0.7em;
+    color: #391685;
+}
+
+#four_models_view .portate {
+    font-size: 0.6em;
+    color: #391685;
+}
+
+#four_models_view .texto-precio-oferta {
+    font-size: 0.7em;
+    color: white;
+}
+
+#four_models_view .precio-oferta {
+    font-size: 1.2em;
+    color: white;
+}
+
+#four_models_view .texto-cuota-1 {
+    font-size: 0.6em;
+    color: white;
+}
+
+#four_models_view .texto-cuota-2 {
+    font-size: 0.4em;
+    color: white;
+}
+
+#four_models_view .precio-oferta-2 {
+    font-size: 2vh;
+    color: white;
+}
+
+#four_models_view .icospec {
+    padding: 0.1em;
+}
+
+#four_models_view p {
+    font-size: 0.3em;
+    color: white;
+}
+
+#four_models_view .especificaciones-4::after {
+        content: '';
+        position: absolute;
+        border-top: 0.5em solid transparent;
+        border-bottom: 0.5em solid transparent;
+        border-right: 0.5em solid #430088;
+        top: 1em;
+        left: -0.4em;
+}
+#four_models_view .precio-normal {
+    font-size: 0.6em;
+}
+/************5 Dispositivos***********************/
+.dispositivo-5 {
+    height: 20%;
+    width: 100%;
+}
+
+.equipo-1-5 {
+    border-bottom: 1em solid #430088;
+}
+.equipo-3-3 {
+    border-top: 1em solid #430088;
+}
+
+#five_models_view .device-name-brand {
+    font-size: 0.8em;
+    color: #391685;
+}
+
+#five_models_view .device-name-model {
+    font-size: 0.7em;
+    color: #391685;
+}
+
+#five_models_view .portate {
+    font-size: 0.8em;
+    color: #391685;
+}
+
+#five_models_view .texto-precio-oferta {
+    font-size: 0.7em;
+    color: white;
+}
+
+#five_models_view .precio-oferta {
+    font-size: 1.1em;
+    color: white;
+}
+
+#five_models_view .texto-cuota-1 {
+    font-size: 0.7em;
+    color: white;
+}
+
+#five_models_view .texto-cuota-2 {
+    font-size: 0.5em;
+    color: white;
+}
+
+#five_models_view .precio-oferta-2 {
+    font-size: 1em;
+    color: white;
+}
+
+#five_models_view .icospec {
+    padding: 0.2em;
+}
+
+#five_models_view p {
+    font-size: 0.5em;
+    color: white;
+}
+
+#five_models_view .especificaciones {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;
+}
+
+#three_models_view .precio_normal {
+    font-size: 0.7em;
+}
+.oferta-3 {
+    background-color: #da017b;
+    border-radius: 0 1em 0 0;
+    border: 0;
+    margin-bottom: 0.4vh;
+    padding-bottom: 0.6vh;
+    height: 7vh;
+}
+.cuota-3 {
+    background-color: #da017b;
+    border-radius: 0 0 1em 0;
+    border: 0;
+    height: 7vh;    
+   }
+
+.especificaciones-3 {
+    background-color: #430088;
+    border-radius: 0 1em 1em 0;    
+}
+.especificaciones-3 p{
+    font-size: 2vh;
+    margin-bottom: 1vh;
+}
+.icospec-3 {
+    width: 3vh;
+}
+.subtel-3 {
+    height: 3vh;
+}
+.subtel-4 {
+    height: 5vh;
+}
+.especificaciones-4 {
+    background-color: #430088;
+    border-radius: 1.5vh 1.5vh 1.5vh 1.5vh;
+}
+.oferta-4 {
+    background-color: #da017b;
+    border-radius: 0 1em 0 0;
+    border: 0;
+    margin-bottom: 0.4vh;
+    padding-bottom: 0.6vh;
+    height: 7vh;
+}
+
+.cuota-4 {
+    background-color: #da017b;
+    border-radius: 0 0 1em 0;
+    border: 0;
+    height: 7vh;
+}
+
+
+.icospec {
+    width: 2em;
+}
+#five_models_view .oferta {
+    height: 5vh;
+}
+
+#five_models_view .cuota {
+    height: 5vh;
+}

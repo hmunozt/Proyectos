@@ -1104,18 +1104,18 @@ hr.midhr {
 /************4 Dispositivos***********************/
 .borde-wom-4 {
     padding: 0;
-    border: 15px solid #430088;
+    border: 5px solid #430088;
     max-height:100%;
     max-width:100%;
 }
 .borde-wom-4-1 {
     padding: 0;
-    border-bottom: 15px solid #430088;
+    border-bottom: 5px solid #430088;
     box-sizing: border-box;
     height: 100%;
 }
 .borde-wom-5 {
-    outline: 15px solid #430088;
+    outline: 5px solid #430088;
 }
 
 .dispositivo-4 {
